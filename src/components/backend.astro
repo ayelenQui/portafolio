@@ -1,0 +1,34 @@
+---
+import initVogueScroll from "../scripts/rueda-liberada.js";
+
+const proyectos = [
+  { img: "src/img/js.png" },
+  { img: "src/img/angular.png" },
+  { img: "src/img/gsap.jpg" },
+  { img: "src/img/react.png" },
+  { img: "src/img/tai.png" },
+  { img: "src/img/js.png" }
+];
+---
+
+<section class="relative h-[200vh] overflow-visible">
+
+  <h1 class="absolute top-40 left-1/2 -translate-x-1/2 text-6xl font-bold z-10 text-black">
+    PROYECTOS <br /> has made shopping <span class="bg-lime-400">WEB</span>
+  </h1>
+
+  <div id="vogue-group" class="absolute inset-0 pointer-events-none">
+    {proyectos.map((p, i) => (
+      <img 
+        src={p.img}
+        class="vogue-item absolute w-40 h-40 object-cover rounded-xl shadow-xl"
+        data-index={i}
+      />
+    ))}
+  </div>
+</section>
+
+<script type="module">
+  import initVogueScroll from "/src/scripts/rueda-liberada.js";
+  initVogueScroll();
+</script>

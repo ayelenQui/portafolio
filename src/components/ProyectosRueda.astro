@@ -1,0 +1,70 @@
+---
+import initVogueScroll from "../scripts/rueda-liberada.js";
+
+const proyectos = [
+  // FRONT
+  { img: "src/img/js.png" },
+  { img: "src/img/angular.png" },
+  { img: "src/img/gsap.jpg" },
+  { img: "src/img/react.png" },
+  { img: "src/img/tai.png" },
+
+  // BACKEND
+  { img: "src/img/backend/csharp.png" },
+  { img: "src/img/backend/dotnet.png" },
+  { img: "src/img/backend/java.png" },
+  { img: "src/img/backend/sql.png" },
+  { img: "src/img/backend/jwt.png" },
+
+  // DEVOPS
+  { img: "src/img/devops/docker.png" },
+  { img: "src/img/devops/github-actions.png" },
+  { img: "src/img/devops/vercel.png" },
+  { img: "src/img/devops/render.png" }
+];
+---
+<section id="proyectos-vogue" class="relative h-[220vh] w-full overflow-visible">
+
+  <h2 id="frase-1"
+      class="absolute top-24 left-1/2 -translate-x-1/2 text-4xl font-bold text-gray-200 opacity-0">
+    Creo experiencias digitales…
+  </h2>
+
+  <h2 id="frase-2"
+      class="absolute top-[40vh] left-1/2 -translate-x-1/2 text-4xl font-bold text-gray-200 opacity-0">
+    …y transformo ideas en interfaces increíbles.
+  </h2>
+
+  <h2 id="proyectos-title"
+      class="absolute top-[60vh] left-1/2 -translate-x-1/2 text-6xl font-bold text-white opacity-0 z-20">
+    MIS PROYECTOS <span class="bg-lime-400 text-black px-2">WEB</span>
+  </h2>
+
+  <h2 id="frase-3"
+      class="absolute top-[100vh] left-1/2 -translate-x-1/2 text-4xl font-bold text-gray-200 opacity-0">
+    Estos son algunos de mis trabajos destacados
+  </h2>
+
+  <!-- 🔥 Este wrapper RECORTA media rueda -->
+  <div id="vogue-wrapper" class="absolute inset-0 overflow-hidden pointer-events-none">
+    
+    <!-- 🔥 Esto debe IR DENTRO del wrapper -->
+    <div id="vogue-group" class="absolute inset-0 pointer-events-none">
+      {proyectos.map((p, i) => (
+        <img 
+          src={p.img}
+          class="vogue-item absolute w-40 h-40 object-cover rounded-xl shadow-xl"
+          data-index={i}
+        />
+      ))}
+    </div>
+
+  </div>
+
+</section>
+
+<script type="module">
+  import initVogueScroll from "/src/scripts/rueda-liberada.js";
+  initVogueScroll();
+</script>
+

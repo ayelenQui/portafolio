@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+const { title = "Mi Portfolio" } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body class="bg-[#0f172a] text-white font-sans">
+    <slot name="navbar" />
+
+    <!-- ✅ CONTENIDO NORMAL (centrado) -->
+    <div class="max-w-5xl mx-auto px-6 pt-28 space-y-32">
+      <slot />
+      
+    </div>
+
+    <!-- ✅ FULLSCREEN DE VERDAD (FUERA DEL CONTENEDOR) -->
+    <slot name="fullscreen" />
+
+    <div id="cursor-trail"></div>
+<footer class="w-full py-10 mt-20 border-t border-default bg-background text-center">
+        <p class="text-sm text-foreground/70">© 2025 Ayelén Quiroga — Todos los derechos reservados.</p>
+        <p class="text-xs text-foreground/50 mt-2">
+          Construido por Aye! con herramientas Astro, TailwindCSS y HeroUI.
+        </p>
+      </footer>
+    <!-- ✅ SCRIPTS SIEMPRE DENTRO DEL BODY -->
+   <script type="module">
+  import initCursor from "/src/scripts/cursor.js";
+  import { initSobreMiScroll } from "/src/scripts/sobreMi.js";
+  import { initProjectsScroll } from "/src/scripts/projects-scroll.js";
+
+  window.addEventListener("load", () => {
+    console.log("✅ Layout: init animations");
+
+    initCursor();
+    initSobreMiScroll();
+    initProjectsScroll();
+  });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+#cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 10000;
+}
+
+.trail-char {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.tech-float {
+  width: 95px;
+  height: 95px;
+  object-fit: contain;
+  position: absolute;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+  animation: float 6s ease-in-out infinite;
+}
+
+.tech-float:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.tech-float:nth-child(2) { top: 50%; left: 5%;  animation-delay: 1.5s; }
+.tech-float:nth-child(3) { top: 20%; left: 55%; animation-delay: 0.7s; }
+.tech-float:nth-child(4) { top: 70%; left: 40%; animation-delay: 2.2s; }
+.tech-float:nth-child(4) { top: 80%; left: 45%; animation-delay: 2.9s; }
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+
+#vogue-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45vw;     /* 🔥 solo se ve la mitad izquierda */
+  height: 100%;
+  overflow: hidden;  /* recorta media rueda */
+}
+
+#vogue-group {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bolso-title {
+  position: relative;
+  z-index: 30; /* SIEMPRE arriba */
+}
+
+.stack-label {
+  position: relative;
+  z-index: 30;
+}
+
+.bolso-item {
+  position: absolute;
+  width: 56px;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+  pointer-events: none;
+}
+.sobre-mi-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bolso-wrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+.project-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 70% 40%,
+    rgba(139, 82, 255, 0.25),
+    rgba(0, 0, 0, 0.85)
+  );
+}
