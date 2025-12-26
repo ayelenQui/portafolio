@@ -50,7 +50,8 @@ export function initSobreMiScroll() {
       end: "+=300%",
       scrub: true,
       pin: true,
-      anticipatePin: 1
+      anticipatePin: 1,
+       pinSpacing: true,
     }
   });
 
@@ -156,34 +157,4 @@ gsap.utils.toArray(".project-card").forEach(card => {
       start: "top 70%"
     }
   });
-});
-
-// Animación principal del proyecto
-gsap.utils.toArray(".project-card").forEach(card => {
-  gsap.from(card, {
-    opacity: 0,
-    y: 80,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: card,
-      start: "top 70%"
-    }
-  });
-
-  // Animación DIFERIDA de los links
-  const links = card.querySelector(".project-links");
-
-  if (links) {
-    gsap.to(links, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 55%"
-      }
-    });
-  }
 });
